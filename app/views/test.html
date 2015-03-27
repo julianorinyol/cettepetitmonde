@@ -1,0 +1,51 @@
+<!-- You can load a stylesheet for your map using loadCSS. Of course, you could also just include the stylesheet using <link …>, but this wouldn't work in Internet Explorer, since RaphaelJS renders using VML there. In fact loadCSS() will load the stylesheet, parse it and apply the styles by converting the CSS attributes to the corresponding Raphael calls.
+ -->
+
+
+map.loadCSS('map.css', function() {
+    map.loadMap('mymap.svg', function() {
+        map.addLayer('layer');
+    });
+});
+
+
+
+<!-- Listening to mouse events
+
+It's easy to respond to mouse events. Kartograph supports the following events: click, dblclick, mouseenter, mouseleave. Please refer the jQuery mouse event documentation to learn more about the different event types. -->
+
+map.addLayer('mylayer', {
+    click: function(data, path, event) {
+        // handle mouse clicks
+        // *data* holds the data dictionary of the clicked path
+        // *path* is the raphael object
+        // *event* is the original JavaScript event
+    }
+});
+
+map.addLayer('mylayer', {
+    click: function(data, path, event) {
+        data[]
+
+        // handle mouse clicks
+        // *data* holds the data dictionary of the clicked path
+        // *path* is the raphael object
+        // *event* is the original JavaScript event
+    }
+});
+path[d.data-key]
+
+<!--  map.addLayer('mylayer', { key: 'ISO' }); -->
+
+<!-- from badips 
+   
+            // map.getLayer('layer0')
+                // function(d){
+                      //   if(count[d.iso2] === undefined){
+                      //     count[d.iso2] = 0;
+                      //   }
+                      //   return [d.name, '<p class="badips">' + count[d.iso2] + ' reports</p>' ];
+                      // }
+
+ -->
+data-key="MT"

@@ -1,0 +1,69 @@
+<div  id="hellousa"> 
+  <h1> this is your world </h1>
+</div>
+
+<script type="text/javascript">
+
+    $(function() {
+
+        var map = kartograph.map('#map');
+
+        map.loadMap('worldy.svg', function() {
+            console.log("start of loadmap callback")
+            map.addLayer('countries', {
+                styles: {
+                    stroke: '#aaa',
+                    fill: '#CC33FF' 
+                    // '#f6f4f2'
+
+                },
+                mouseenter: function(d, path) {
+                    path.attr('fill', Math.random() < 0.5 ? '#CC6600':'#00FFFF');
+                    console.log(d)
+                    console.log(path)
+                    // console.log(d["key"])
+                    // console.log(d["label"])
+// "<p>" + d["key"] + "</p>"
+                      // '#c04' : '#04c');
+                },
+                click: function(d, path) {
+                    console.log(d)
+                    // console.log(d["key"])
+                    // console.log(d["label"])
+                    $("#superinfo").html("<p>Hello " + d["name"] + "</p>")
+                },
+                mouseleave: function(d, path) {
+                    path.animate({ fill: '#CCCC00' }, 1000 ); 
+
+                      // '#f6f4f2' }, 1000);
+                }
+            });
+         
+
+            var points_of_interest = [
+                { name: 'Juneau, AK', lat: 58.3, lon: -134.416667 },
+                { name: 'Honolulu, HI', lat: 21.3, lon: -157.816667 },
+                { name: 'San Francisco, CA', lat: 37.783333, lon: -122.416667 },
+            ];
+
+            map.addSymbols({
+                type: kartograph.LabeledBubble,
+                data: points_of_interest,
+                location: function(d) { return [d.lon, d.lat] },
+                title: function(d) { return d.name; },
+                radius: 3,
+                center: false,
+                attrs: { fill: 'black' },
+                labelattrs: { 'font-size': 11 },
+                buffer: true
+            });
+
+        }, { padding: 30 });
+    });
+
+</script>
+    
+    <div id="map"></div>
+    <div class = "infocontainer">
+        <div id="superinfo"><p>hey</p></div>
+    </div>
