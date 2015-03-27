@@ -78,3 +78,12 @@ h1 {
   color: purple;
 }
 
+#fixedcontainer {
+  margin: auto;
+  height: 850px;
+  width: 95%;
+  overflow: hidden;
+  -webkit-box-shadow:inset 1px 1px 83px -4px #FFFFFF;
+
+  box-shadow: inset 1px 1px 83px -4px #FFFFFF;
+}

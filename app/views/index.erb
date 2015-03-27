@@ -31,6 +31,10 @@
                     // console.log(d["key"])
                     // console.log(d["label"])
                     $("#superinfo").html("<p>Hello " + d["name"] + "</p>")
+                    if(d["name"] == "Chad"){
+                        console.log("chad");
+                        $("#coolcontainer").css('transform', 'scale(1.5)');
+                    }
                 },
                 mouseleave: function(d, path) {
                     path.animate({ fill: '#CCCC00' }, 1000 ); 
@@ -44,7 +48,9 @@
                 { name: 'Juneau, AK', lat: 58.3, lon: -134.416667 },
                 { name: 'Honolulu, HI', lat: 21.3, lon: -157.816667 },
                 { name: 'San Francisco, CA', lat: 37.783333, lon: -122.416667 },
+                { name:  'Vancouver', lat: 49.282711, lon: -123.120711 }
             ];
+
 
             map.addSymbols({
                 type: kartograph.LabeledBubble,
@@ -62,8 +68,11 @@
     });
 
 </script>
-    
-    <div id="map"></div>
+    <div id="fixedcontainer">
+        <div id="coolcontainer">
+            <div id="map"></div>
+        </div>
+    </div>
     <div class = "infocontainer">
         <div id="superinfo"><p>hey</p></div>
     </div>
